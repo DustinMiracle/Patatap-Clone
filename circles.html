@@ -183,6 +183,11 @@
         for (var i = 0; i < circles.length; i++){
             circles[i].fillColor.hue += 1;
             circles[i].scale(.9);
+            if (circles[i].area < 1){
+                circles[i].remove(); // Removes the circle from the canvas
+                circles.splice(i, 1); // Removes the circle from the array
+                i--; // Decrement i so the loop doesn't skip a circle because of .splice()               
+            }
         }
     }
     </script>
